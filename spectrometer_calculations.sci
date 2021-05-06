@@ -1,3 +1,4 @@
+// OpenSpectR_CalculationsFile
 // Copyright (C) 2021 - Buğra Coşkun
 // bgra.coskn@gmail.com  ||  https://bgracoskn.github.io
 //
@@ -11,7 +12,7 @@
 // Date of creation: 2021
 //
 // Related links:
-// Instructables, github, thingiverse, bgracoskn, linkedin
+// Instructables, github, grabcad, bgracoskn, linkedin
 clc; clear all; funcprot(0); format(25)
 //atomsLoad('DD_QD')
 wl_redlimit = 0.7; //700nm violet
@@ -93,7 +94,30 @@ output_vals = cal_path(deg2rad(67.5), %pi/4, wl_redlimit, wl_violetlimit, 10) //
 output_vals_deg = [rad2deg(output_vals(1));rad2deg(output_vals(2));output_vals(3:4)]
 disp(output_vals_deg)
 
-// print a testing rig before going to the concave mirror calculations
+// print a testing rig before going to the concave mirror calculations - Done
+// prism path calculations are accurate, next up is convex mirror path calculations
+
+// Derived path equations for spherical convex mirror of F=10cm and R=5cm
+// v0 assumptions: convex mirror is parallel to the horizontal axis
+// $\theta_{3n}=tan^{-1}\Bigg[\dfrac{dC(x_n)}{dx}\Bigg]-\theta^{''}_{2n}$
+// For the derived equations to work prism output line and convex mirror
+// contour intersection points need to be determined, for a coherent calculation
+// the convex mirror location should be determined before the path calculations
+// as expected, 
+
+foc = 10 //focal length :10cm
+step_count = 10000 // numerical approximation of the mirror surface
+dia = 5 // diameter of the mirror is 5cm
+tb = acos(dia/(4*foc))
+ta = %pi-tb
+step_size = (ta-tb)/step_count
+deff ('rc = C(t)', 'rc = [2*foc*cos(t);2*foc*sin(t)]')
+rc_mat = C(ta)
+for i = 1:step_count
+	rc_add = C(ta-i*step_size)
+	rc_mat = cat(2,rc_mat, rc_add)
+end
+
 
 
 
