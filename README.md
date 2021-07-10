@@ -4,6 +4,9 @@ OpenSpectR © 2021 by Buğra Coşkun is licensed under CC BY-NC 4.0. To view a c
 
 This project is an open-source hardware, 3D printed, optical absorption scanning spectrophotometer. I'm trying to build this project out of readily available parts and use 3D printed components where I can, when finished I will add every STL, code and the guide to the best of my abilities to make it easy for anyone to make their own spectrometer.
 
+Main Prototype Screenshots:
+![image](https://user-images.githubusercontent.com/12624047/125163477-03cc5980-e196-11eb-9747-8581ec8c0df0.png)
+
 Testv1 Modelling Screenshots:
 ![image](https://user-images.githubusercontent.com/12624047/120530575-59b72000-c3e6-11eb-94d3-28f3db0bfc4e.png)
 
